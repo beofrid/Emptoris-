@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Emptoris.Views.Elements.InsertDBView">
+
+    <Grid RowDefinitions="*,*">
+
+        <ListView x:Name="ShoppingList" Grid.Row="1" VerticalOptions="Center">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Border Margin="0"
+                                Stroke="Purple"
+                                StrokeThickness="0.2"
+                                HeightRequest="80"
+                                BindingContext="{Binding .}"
+                                BackgroundColor="Green"
+                                Padding="10">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="20"/>
+                            </Border.StrokeShape>
+
+                            <Border.Shadow>
+                                <Shadow Brush="#385e77" Offset="15,5" Radius="10" Opacity="0.2"/>
+                            </Border.Shadow>
+
+
+                            <Grid ColumnDefinitions="100,60, *, 90">
+                                <Entry Grid.Column="0"
+                                       Margin="40,0,0,0"
+                                       TextColor="{StaticResource OrangeColor}"
+                                       FontFamily="Quicksand"
+                                       FontSize="30"
+                                       FontAttributes="Bold"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalTextAlignment="Center"
+                                       WidthRequest="70"
+                                       Background="{StaticResource OrangeColor}"
+                                       Text="JARARA"
+                                       Keyboard="Numeric">
+                                    
+                                    
+                                </Entry>
+                                
+                                <Label Grid.Column="1"
+                                       Text ="un" 
+                                       FontSize="25"
+                                       TextColor="#1d1d1d"
+                                       HorizontalTextAlignment="Start"
+                                       VerticalTextAlignment="Center"
+                                       Margin="10,0"
+                                       FontFamily="Quicksand"
+                                       FontAttributes="Bold">
+                                    <Label.Shadow>
+                                        <Shadow Brush="#1d1d1d"
+                                                Radius="3" Offset="3,3"
+                                                Opacity=".4">
+                                            
+                                        </Shadow>
+                                    </Label.Shadow>
+                                </Label>
+                                
+                                <Label Grid.Column="2"
+                                       Text ="{Binding ItemName}" 
+                                       FontSize="30"
+                                       TextColor="Black"
+                                       VerticalTextAlignment="Center"
+                                       Margin="10,0"
+                                       Padding="10,0"
+                                       FontFamily="Quicksand"
+                                       FontAttributes="Bold">
+                                    
+                                    <Label.Shadow>
+                                        <Shadow Brush="#1d1d1d"
+                                                Radius="3" Offset="3,3"
+                                                Opacity=".4">
+                                            
+                                        </Shadow>
+                                    </Label.Shadow>
+                                    
+                                    
+                                    
+                                </Label>
+                                
+                                <Button Grid.Column="3" 
+                                        Text="X"
+                                        WidthRequest="70"
+                                        FontSize="25"                                        
+                                        BorderWidth="1"
+                                        BorderColor="{StaticResource White}"
+                                        TextColor="{StaticResource DarkColor}"
+                                        Clicked="DeleteButton_Clicked">
+                                    <Button.Background>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                            <GradientStop Color="{StaticResource BlueWhite}" Offset="0.1"/>
+                                            <GradientStop Color="{StaticResource LightColor}" Offset="0.9"/>
+                                        </LinearGradientBrush>
+                                    </Button.Background>
+                                    <Button.Shadow>
+                                        <Shadow Brush="#1d1d1d"
+                                                Radius="3" Offset="3,3"
+                                                Opacity=".2"/>
+                                    </Button.Shadow>
+                                    
+                                </Button>
+                                
+                              
+                            </Grid>
+
+                        </Border>
+
+                    </ViewCell>
+
+                </DataTemplate>
+
+            </ListView.ItemTemplate>
+        </ListView>
+
+
+
+
+        <!--
+        <Grid RowDefinitions="*,*" Grid.RowSpan="2">
+    <Frame x:Name="InsertItem"
+           Background="BlueViolet"
+           BorderColor="{StaticResource DarkColor}"
+           Padding="0">
+        
+        
+    </Frame>
+</Grid>-->
+
+
+        
+    </Grid>
+    
+
+
+
+</ContentView>

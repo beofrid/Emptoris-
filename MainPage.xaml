@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Emptoris.MainPage">
+    
+    <Grid RowDefinitions="150,*" BackgroundColor="{StaticResource Primary}">
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70*"/>
+                <RowDefinition Height="30*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" ColumnDefinitions="60,*,*,*" Padding="5" ColumnSpacing="5">
+
+                <Grid RowDefinitions="16,16,16"
+                      x:Name="MenuBars"
+                      HorizontalOptions="End">
+                    <Rectangle Grid.Row="0"
+                                MaximumWidthRequest="50"
+                                MaximumHeightRequest="5"
+                                Background="{StaticResource WhiteOrange}"/>
+                    <Rectangle Grid.Row="1"
+                                MaximumWidthRequest="50"
+                                MaximumHeightRequest="5"
+                                Background="{StaticResource WhiteOrange}"/>
+                    <Rectangle Grid.Row="2"
+                                MaximumWidthRequest="50"
+                                MaximumHeightRequest="5"
+                                Background="{StaticResource WhiteOrange}"/>
+                </Grid>
+
+                <Button BackgroundColor="Transparent"
+                        CornerRadius="0"
+                        x:Name="MenuBtn"
+                        Clicked="Menu_Button_Clicked"/>
+
+                <Label Grid.Column="1"
+                       Grid.ColumnSpan="3"
+                       Text="Emptoris"
+                       HorizontalTextAlignment="Center"
+                       Margin="-50,0,0,0"
+                       FontFamily="Allison"
+                       FontSize="80"
+                       TextColor="{StaticResource WhiteOrange}"/>
+
+
+            </Grid>
+            <SearchBar Background="{StaticResource Secondary}"
+                       Placeholder="Pesquise itens aqui"
+                       PlaceholderColor="{StaticResource SecondaryOrange}"
+                       Grid.Row="1"
+                       Margin="8,0,8,0"
+                       HorizontalOptions="Fill"
+                       x:Name="AppSearchBar"
+                       TextChanged="SearchBar_TextChanged"
+                       Focused="SearchBar_Focused"
+                       Unfocused="SearchBar_Unfocused"/>
+
+        </Grid>
+
+        
+        
+        
+        <Frame x:Name="MainFrame"
+               Grid.Row="1"
+               BackgroundColor="{StaticResource Primary}"
+               CornerRadius="0"
+               BorderColor="{StaticResource Primary}"
+               Padding="0">
+            
+            
+        </Frame>
+        
+        <Button Grid.Row="1"
+                x:Name="PlusBtn"
+                HeightRequest="100"
+                WidthRequest="100"
+                CornerRadius="50"
+                Text="+"
+                Padding="0, -10, 0, 0"
+                FontSize="60"
+                FontFamily="Lexend"
+                TextColor="{StaticResource WhiteOrange}"
+                VerticalOptions="End"
+                Margin="0,0,0,25"
+                Clicked="Add_Clicked">
+
+        </Button>
+
+        <Grid Grid.Row="1"     
+              VerticalOptions="Start"
+              x:Name="DropDown"
+              IsVisible="False">
+
+            <Button Grid.Column="1"
+                    CornerRadius="0"
+                    Text="Adicionar novo item"
+                    HeightRequest="35"
+                    VerticalOptions="Start"
+                    FontSize="Large"
+                    TextColor="{StaticResource BlueWhite}"
+                    FontFamily="Monasans"
+                    TranslationY="-1"
+                    Padding="0"
+                    Clicked="Button_Clicked"/>
+            <ListView x:Name="ItemList"
+                      Grid.Column="1"
+                      TranslationY="34"
+                      RowHeight="35"
+                      BackgroundColor="{StaticResource Secondary}"
+                      ItemSelected="ItemList_ItemSelected"
+                      SelectionMode="None">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Label Text="{Binding ItemName}"
+                                   Margin="5,0,0,0"
+                                   FontSize="22"
+                                   FontFamily="Quicksand"
+                                   HorizontalTextAlignment="Center"
+                                   TextColor="{StaticResource WhiteOrange}" />
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+        </Grid>
+
+
+    </Grid>
+
+</ContentPage>
+

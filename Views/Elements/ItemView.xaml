@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
+             x:Class="Emptoris.Views.Elements.ItemView">
+
+    <ListView x:Name="ShoppingList"
+              Background="{StaticResource Primary}"
+              Margin="8,0,8,0"
+              RowHeight="80"
+              SeparatorVisibility="None"
+              SelectionMode="None"
+              ItemSelected="ShoppingList_ItemSelected">
+
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <SwipeView android:SwipeView.SwipeTransitionMode="Drag" Margin="-2">
+                        <SwipeView.RightItems>
+                            <SwipeItems Mode="Reveal">
+                                <SwipeItem Text="Edit"
+                                           BackgroundColor="{StaticResource OrangeColor}"
+                                           Invoked="OnEditSwipe" 
+                                           CommandParameter="{Binding .}" />
+                                
+                            </SwipeItems>
+                        </SwipeView.RightItems>
+                        <SwipeView.LeftItems>
+                            <SwipeItem Text="Delete"
+                                       BackgroundColor="{StaticResource RedColor}"
+                                       Invoked="OnDeleteSwipe"
+                                       CommandParameter="{Binding .}" />
+                        </SwipeView.LeftItems>
+
+                        <Border VerticalOptions="Center"
+                                Stroke="{StaticResource Secondary}"
+                                BackgroundColor="{StaticResource Secondary}"
+                                HeightRequest="75"
+                                Padding="10">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="15"/>
+                            </Border.StrokeShape>
+
+
+
+
+                            <Grid ColumnDefinitions="100,60, *">
+                                <Label Grid.Column="0"
+                                       Margin="40,0,0,0"
+                                       TextColor="{StaticResource SecondaryOrange}"
+                                       FontFamily="Quicksand"
+                                       FontSize="30"
+                                       FontAttributes="Bold"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalTextAlignment="Center"
+                                       WidthRequest="70"
+                                       Text="{Binding Num}">
+                                </Label>
+
+                                <Label Grid.Column="1"
+                                       Text ="un" 
+                                       FontSize="25"
+                                       TextColor="{StaticResource SecondaryOrange}"
+                                       HorizontalTextAlignment="Start"
+                                       VerticalTextAlignment="Center"
+                                       Margin="0,0"
+                                       FontFamily="Quicksand"
+                                       FontAttributes="Bold">
+                                    
+                                </Label>
+                                
+                                <Label Grid.Column="2"
+                                       Text ="Item name" 
+                                       FontSize="30"
+                                       TextColor="{StaticResource WhiteOrange}"
+                                       VerticalTextAlignment="Center"
+                                       Margin="10,0"
+                                       Padding="10,0"
+                                       FontFamily="Quicksand"
+                                       FontAttributes="Bold">
+                                    
+                                    
+                                    
+
+
+                                </Label>
+
+
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" CommandParameter="{Binding .}" />
+                                </Grid.GestureRecognizers>
+
+                            </Grid>
+
+
+                        </Border>
+                    </SwipeView>
+
+
+
+
+                   
+
+                                      
+                    
+                    
+
+                </ViewCell>
+                
+            </DataTemplate>
+            
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentView>
+
+
+
+

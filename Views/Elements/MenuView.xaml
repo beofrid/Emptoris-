@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Emptoris.Views.Elements.MenuView">
+    <VerticalStackLayout Margin="10" Spacing="10">
+        <Button HeightRequest="100"
+                Text="Listas de compras"
+                FontSize="Title"
+                BackgroundColor="{StaticResource Secondary}"
+                TextColor="{StaticResource SecondaryOrange}"
+                Clicked="ShoppingLists_Clicked"/>
+        
+        <Button HeightRequest="100"
+                Text="Inserir novo item no banco de dados"
+                FontSize="Title"
+                BackgroundColor="{StaticResource Secondary}"
+                TextColor="{StaticResource SecondaryOrange}"
+                Clicked="NewBDItem_Clicked"/>
+
+    </VerticalStackLayout>
+</ContentView>

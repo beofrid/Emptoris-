@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Emptoris.Views.Elements.InsertItem">
+    <Grid BackgroundColor="{StaticResource Primary}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+      
+
+        <Label Grid.Row="0"
+               Text="Inserir um novo item"
+               FontFamily="Lexend"
+               FontSize="Title"
+               TextColor="{StaticResource OrangeColor}"
+               FontAttributes="Bold"
+               HorizontalOptions="Center">
+            <Label.Shadow>
+                <Shadow Brush="{StaticResource SecondaryOrange}" 
+                        Radius="3" Offset="3,3"
+                        Opacity=".4"/>
+            </Label.Shadow>
+            
+        </Label>
+
+        <Grid Grid.Row="1"  RowDefinitions="*,*,*" ColumnDefinitions="160,*" Background="{StaticResource Secondary}" Margin="40,0,40,0">
+            <Label Grid.Column="0"
+                   Grid.Row="0"
+                   Text="Nome do Item:"
+                   FontSize="Title"
+                   FontFamily="Lexend"
+                   VerticalOptions="Center"
+                   WidthRequest="150"
+                   Margin="10,0,0,0"
+                   TextColor="{StaticResource WhiteOrange}"/>
+            
+            <Entry Grid.Column="1"
+                   Grid.Row="0"
+                   x:Name="NameEntry"
+                   FontSize="Title"
+                   MinimumWidthRequest="50"
+                   TextColor="{StaticResource WhiteOrange}"
+                   Margin="0,0,50,0"
+                   VerticalOptions="Center"/>
+
+            <Label Grid.Column="0"
+                   Grid.Row="1"
+                   Text="Quantidade:"
+                   FontSize="Title"
+                   FontFamily="Lexend"
+                   VerticalOptions="Center"
+                   WidthRequest="150"
+                   Margin="10,0,0,0"
+                   TextColor="{StaticResource WhiteOrange}"/>
+
+            <Entry Grid.Column="1"
+                   Grid.Row="1"
+                   x:Name="QuantityEntry"
+                   FontSize="Title"
+                   TextColor="{StaticResource WhiteOrange}"
+                   Margin="0,0,50,0"
+                   VerticalOptions="Center"
+                   Keyboard="Numeric"/>
+            
+            <Label Grid.Column="0"
+                   Grid.Row="2"
+                   Text="Categoria:"
+                   FontSize="Title"
+                   FontFamily="Lexend"
+                   VerticalOptions="Center"
+                   WidthRequest="150"
+                   Margin="10,0,0,0"
+                   TextColor="{StaticResource WhiteOrange}"/>
+            <Picker Grid.Column="1"     
+                    Grid.Row="2"
+                    x:Name="CategoryPicker"
+                    BackgroundColor="{StaticResource Primary}"
+                    VerticalOptions="Center"
+                    Margin="0,0,50,0"              
+                    HorizontalOptions="Fill"
+                    FontSize="Title"
+                    FontFamily="Lexend"
+                    TextColor="{StaticResource WhiteOrange}">
+
+            </Picker>
+
+
+
+
+
+
+        </Grid>
+
+      
+
+        <Button Grid.Row="2"
+                HeightRequest="40"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                WidthRequest="200"
+                Text="Iserir"
+                FontFamily="Lexend"
+                TextColor="White"
+                Clicked ="Button_Clicked"
+                >
+                <!--Clicked="InsertItem_Clicked"-->
+
+        </Button>
+        
+
+
+    </Grid>
+</ContentView>
