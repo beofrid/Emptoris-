@@ -7,8 +7,8 @@
 
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="70*"/>
-                <RowDefinition Height="30*"/>
+                <RowDefinition Height="65*"/>
+                <RowDefinition Height="35*"/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0" ColumnDefinitions="60,*,*,*" Padding="5" ColumnSpacing="5">
 
@@ -40,7 +40,7 @@
                        HorizontalTextAlignment="Center"
                        Margin="-50,0,0,0"
                        FontFamily="Allison"
-                       FontSize="80"
+                       FontSize="55"
                        TextColor="{StaticResource WhiteOrange}"/>
 
 
@@ -108,7 +108,6 @@
                       TranslationY="34"
                       RowHeight="35"
                       BackgroundColor="{StaticResource Secondary}"
-                      ItemSelected="ItemList_ItemSelected"
                       SelectionMode="None">
 
                 <ListView.ItemTemplate>
@@ -119,7 +118,12 @@
                                    FontSize="22"
                                    FontFamily="Quicksand"
                                    HorizontalTextAlignment="Center"
-                                   TextColor="{StaticResource WhiteOrange}" />
+                                   TextColor="{StaticResource WhiteOrange}" >
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Label_Tapped" />
+                                </Label.GestureRecognizers>
+
+                            </Label>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

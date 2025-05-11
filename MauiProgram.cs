@@ -1,7 +1,7 @@
 ﻿using Emptoris.Data;
 using Microsoft.Extensions.Logging;
 using Microsoft.Maui.Handlers;
-using System.Diagnostics;
+using CommunityToolkit.Maui;
 
 namespace Emptoris
 {
@@ -12,6 +12,7 @@ namespace Emptoris
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseMauiCommunityToolkit()
                 .ConfigureFonts(fonts =>
                 {
 
@@ -22,6 +23,7 @@ namespace Emptoris
                     fonts.AddFont("Quicksand-Light.ttf", "Quicksand");
 
                 });
+                
 
             builder.Logging.AddDebug();
             builder.Services.AddSingleton<DBAccess>();

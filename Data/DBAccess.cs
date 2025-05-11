@@ -20,10 +20,5 @@ namespace Emptoris.Data
         public SQLiteAsyncConnection GetConnection() => _connection;
 
 
-
-
-
-
-
     }
 }

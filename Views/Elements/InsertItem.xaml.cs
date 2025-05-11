@@ -137,12 +137,11 @@ public partial class InsertItem : ContentView
         _ = ItemService.AddItem("Shoyo", "Alimentação");
 
         // Itens sugeridos
-        _ = ItemService.AddItem("Óleo de oliva", "Alimentação");
+        _ = ItemService.AddItem("Azeite de oliva", "Alimentação");
         _ = ItemService.AddItem("Vinagre", "Alimentação");
         _ = ItemService.AddItem("Ketchup", "Alimentação");
         _ = ItemService.AddItem("Mostarda", "Alimentação");
         _ = ItemService.AddItem("Mel", "Alimentação");
-        _ = ItemService.AddItem("Azeite de dendê", "Alimentação");
         _ = ItemService.AddItem("Maionese", "Alimentação");
 
         // Categoria Hortifruti
@@ -158,8 +157,6 @@ public partial class InsertItem : ContentView
         _ = ItemService.AddItem("Pera", "Hortifruti");
         _ = ItemService.AddItem("Banana", "Hortifruti");
         _ = ItemService.AddItem("Limão", "Hortifruti");
-
-        // Itens sugeridos para Hortifruti
         _ = ItemService.AddItem("Couve", "Hortifruti");
         _ = ItemService.AddItem("Espinafre", "Hortifruti");
         _ = ItemService.AddItem("Brócolis", "Hortifruti");
@@ -186,15 +183,9 @@ public partial class InsertItem : ContentView
         _ = ItemService.AddItem("Shampoo", "Higiene e Limpeza");
         _ = ItemService.AddItem("Condicionador", "Higiene e Limpeza");
         _ = ItemService.AddItem("Água sanitária", "Higiene e Limpeza");
-
-        // Itens sugeridos para Higiene e Limpeza
-        _ = ItemService.AddItem("Desengordurante", "Higiene e Limpeza");
         _ = ItemService.AddItem("Luvas de borracha", "Higiene e Limpeza");
-        _ = ItemService.AddItem("Saco de lixo", "Higiene e Limpeza");
-        _ = ItemService.AddItem("Borrifador", "Higiene e Limpeza");
-        _ = ItemService.AddItem("Cloro", "Higiene e Limpeza");
-        _ = ItemService.AddItem("Removedor de manchas", "Higiene e Limpeza");
-        _ = ItemService.AddItem("Cera líquida", "Higiene e Limpeza");
+
+
     }
 
     private void Button_Clicked(object sender, EventArgs e)

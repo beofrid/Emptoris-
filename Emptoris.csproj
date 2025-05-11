@@ -97,6 +97,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Maui" Version="8.0.0" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.1" />
@@ -111,6 +112,9 @@
 	<ItemGroup>
 	  <Compile Update="Views\Elements\InsertDBView.xaml.cs">
 	    <DependentUpon>InsertDBView.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\TEST\MAINTEST.xaml.cs">
+	    <DependentUpon>MAINTEST.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
@@ -127,7 +131,13 @@
 	  <MauiXaml Update="Views\Elements\MenuView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\Elements\QuantityPopup.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\Elements\ShoppingListView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\TEST\MAINTEST.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

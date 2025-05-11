@@ -1,4 +1,4 @@
-﻿using Emptoris.Data;
+﻿using CommunityToolkit.Maui.Views;
 using Emptoris.Model;
 using Emptoris.Services;
 using Emptoris.Views.Elements;
@@ -15,8 +15,7 @@ namespace Emptoris
     {
         public static MainPage Current { get; private set; }
         public static Frame MainFrameInstance { get; private set; }
-        public ObservableCollection<Item>? _itemList;
-        public List<Item>? _allItems;
+        private ObservableCollection<Item>? _itemList;
         public Timer timer;
 
 
@@ -34,6 +33,7 @@ namespace Emptoris
         public void InitializeMainFrame()
         {
             MainFrame.Content = new ItemView();
+           // MainFrame.Content = new MAINTEST();
             String appDataPath = FileSystem.AppDataDirectory;
             Debug.WriteLine($"AppDataDirectory: {appDataPath}", "MAIN PAGE");
             VisibilityHandler("AddItem");
@@ -42,7 +42,6 @@ namespace Emptoris
 
         private void ShoppingList_Clicked(Object sender, EventArgs e)
         {
-           
            
 
         }
@@ -62,9 +61,6 @@ namespace Emptoris
             }
         }
 
-        
-
-
         private void Menu_Button_Clicked(object sender, EventArgs e)
         {
             MainFrame.Content = new MenuView();
@@ -75,8 +71,7 @@ namespace Emptoris
 
 
         }
-
-
+        
         public void VisibilityHandler(string code)
         {
             switch (code)
@@ -114,32 +109,21 @@ namespace Emptoris
     
 
      #region search bar
-    protected override void OnParentSet()
+        protected override void OnParentSet()
         {
             base.OnParentSet();
-            createlist(); // method that waits the load of the view
+            FetchItens(); // method that waits the load of the view
         }
 
 
-        private async void createlist()
-        {         
-            _allItems = await ItemService.ShowItems();
-            Debug.WriteLine("List: " + _allItems.Count, "MAIN PAGE");
+        private async void FetchItens()
+        {
 
+            _itemList = new ObservableCollection<Item>(await ItemService.ShowItems());
+            var itensOrdered = new ObservableCollection<Item>(
+                    (await ItemService.ShowItems()).OrderBy(i => i.ItemName));
+            ItemList.ItemsSource = itensOrdered;
 
-
-
-            //_itemList = new ObservableCollection<Item>(_allItems);
-            //if (ItemList == null)
-            //{
-            //    Debug.WriteLine("Drop-down list: ITEM IS NOT NULL", "MAIN PAGE");
-            //    return;
-            //}
-            //else
-            //{
-            //    Debug.WriteLine("Drop-down list: ITEM IS NOT NULL, and that's good", "MAIN PAGE");
-
-            //}
 
         }
 
@@ -183,8 +167,10 @@ namespace Emptoris
 
         private void SearchBar_Unfocused(object sender, FocusEventArgs e)
         {
+            //maybe useless (in windows machine works)
             HideDropdown();
         }
+        
         private void Button_Clicked(object sender, EventArgs e)
         {
             Debug.WriteLine("DROP-DOWN BUTTON CLICKED", "MAIN PAGE");
@@ -192,11 +178,37 @@ namespace Emptoris
 
 
         }
-
-        private void ItemList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private void Label_Tapped(Object sender, EventArgs e)
         {
-            HideDropdown();
+            if (sender is Label label && label.BindingContext is Item selectedItem)
+            {
+                Console.WriteLine($"Label clicked: {selectedItem.ItemName}");
+                if (selectedItem != null)
+                {
+                    var popup = new QuantityPopup(quantity =>
+                    {
+                        // This runs after the user confirms the quantity
+                        //AddItemToShoppingList(item, quantity);
+                    });
 
+                    this.ShowPopup(popup);
+                }
+            }
+            UnfocusSearchbar();
+            HideDropdown();
+           
+
+        }
+
+
+        private void UnfocusSearchbar()
+        {
+            SearchBar SearchBar = AppSearchBar;
+
+            if (AppSearchBar.IsFocused)
+            {
+                AppSearchBar.Unfocus(); 
+            }
         }
 
         private async void HideDropdown()

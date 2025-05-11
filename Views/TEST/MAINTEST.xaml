@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Emptoris.Views.TEST.MAINTEST">
+    <VerticalStackLayout>
+
+        <Button Clicked="SearchOnDB"/>
+
+
+        <ListView x:Name="ShoppingList">
+    
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                          
+                            <Grid>
+                                <Label Grid.Column="0"
+                                   Margin="0,0,0,0"
+                                   TextColor="{StaticResource SecondaryOrange}"
+                                   FontFamily="Quicksand"
+                                   FontSize="20"
+                                   FontAttributes="Bold"
+                                   VerticalTextAlignment="Center"
+                                   HorizontalTextAlignment="Center"
+                                   Text="{Binding ItemName}">
+                               </Label>
+
+
+                   
+
+                            </Grid>
+
+                </ViewCell>
+
+            </DataTemplate>
+
+        </ListView.ItemTemplate>
+        </ListView>
+
+
+    </VerticalStackLayout>
+</ContentView>
